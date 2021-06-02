@@ -20,9 +20,6 @@
     ; Take only the first group
     (string-append (cadr matches) ".html")))
 
-(define (is-json? input-string)
-  (regexp-match? #px"([\\w-]+)(\\.json)" input-string))
-
 (define (generate-span string type)
   (format "<span class='~a'>~a</span>" type string))
 
@@ -61,11 +58,6 @@
 
 
 (define (main in-file-path)
-  (define all-files (filter is-json? (map some-system-path->string (directory-list in-file-path))))
-  (current-directory in-file-path)
-  (map create-html all-files))
-
-(define (create-html in-file-path)
-  (current-directory (build-path (current-directory) ".."))
   (define result (list (format (file->string "regexp_site.html") (convert-html in-file-path))))
   (write-file (get-html-output in-file-path) result))
+
