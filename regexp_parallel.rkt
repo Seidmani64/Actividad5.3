@@ -40,6 +40,7 @@
           [(regexp-match #px"^-?\\d+(\\.\\d+)?([eE][-+]?\\d+)?" file) (list (car (regexp-match #px"^-?\\d+(\\.\\d+)?([eE][-+]?\\d+)?" file)) "number")]
           [(regexp-match #px"^(true|null|false)" file) (list (cadr (regexp-match #px"^(true|null|false)" file)) "reserved-word")]
           [(regexp-match #px"^\\s+" file) (list (car (regexp-match #px"^\\s+" file)) "space")]
+          [else (list (car (regexp-match #px"." file)) "unknown")]
           )])
         (loop (string-append result (generate-span (car token) (cadr token))) (substring file (string-length (car token)))))
         result
