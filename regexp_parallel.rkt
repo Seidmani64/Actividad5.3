@@ -61,11 +61,9 @@
 
 
 (define (main in-file-path)
-  (define all-files (filter is-json? (map some-system-path->string (directory-list in-file-path))))
-  (current-directory in-file-path)
+  (define all-files (map (lambda (filename) (string-append in-file-path "/" filename)) (filter is-json? (map some-system-path->string (directory-list in-file-path)))))
   (map create-html all-files))
 
 (define (create-html in-file-path)
-  (current-directory (build-path (current-directory) ".."))
-  (define result (list (format (file->string "regexp_site.html") (convert-html in-file-path))))
+  (define result (list (format (file->string "regexp_site.html")(convert-html (string-append in-file-path)))))
   (write-file (get-html-output in-file-path) result))
