@@ -21,7 +21,7 @@
     (string-append (cadr matches) ".html")))
 
 (define (is-json? input-string)
-  (regexp-match? #px"([\\w-]+)(\\.json)" input-string))
+  (regexp-match? #px"(?:.json)+$" input-string))
 
 (define (generate-span string type)
   (format "<span class='~a'>~a</span>" type string))
@@ -40,7 +40,7 @@
           [(regexp-match #px"^-?\\d+(\\.\\d+)?([eE][-+]?\\d+)?" file) (list (car (regexp-match #px"^-?\\d+(\\.\\d+)?([eE][-+]?\\d+)?" file)) "number")]
           [(regexp-match #px"^(true|null|false)" file) (list (cadr (regexp-match #px"^(true|null|false)" file)) "reserved-word")]
           [(regexp-match #px"^\\s+" file) (list (car (regexp-match #px"^\\s+" file)) "space")]
-          [else (list (car (regexp-match #px"." file)) "unknown")]
+          [else (list "" "unknown")]
           )])
         (loop (string-append result (generate-span (car token) (cadr token))) (substring file (string-length (car token)))))
         result
@@ -61,10 +61,16 @@
              (loop (cdr lst))])))))
 
 
+(define (make-future in-file-path)
+  " Return a new future that loops 'limit' times "
+  (future (lambda ()
+            (define result (list (format (file->string "regexp_site.html")(convert-html (string-append in-file-path)))))
+            (write-file (get-html-output in-file-path) result))))
+
 (define (main in-file-path)
   (define all-files (map (lambda (filename) (string-append in-file-path "/" filename)) (filter is-json? (map some-system-path->string (directory-list in-file-path)))))
-  (map create-html all-files))
+  (define futures (map make-future all-files))
+  (define result (map touch futures))
+  (print "Finished!"))
 
-(define (create-html in-file-path)
-  (define result (list (format (file->string "regexp_site.html")(convert-html (string-append in-file-path)))))
-  (write-file (get-html-output in-file-path) result))
+
