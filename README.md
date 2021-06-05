@@ -34,10 +34,12 @@ Junio 2021
 
 Se midió el tiempo con “Time” en paralelo dando 36,403 milisegundos -> 36.4 segundos
 
-
+!["Time Paralelo"](images/Time_paralelo.png)
 
 
 De la misma manera se midió el tiempo real total secuencial dando un total de 34,488 milisegundos -> 34.4 segundos.
+
+!["Time Secuencial"](images/Time_secuencial.png)
 
 Speedup resultante: 34488/36403 = 0.947
 
