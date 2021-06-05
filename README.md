@@ -31,13 +31,6 @@ Profesores:
 Gilberto Echeverria
 Junio 2021
 
-De manera individual:
-Extiende el programa realizado en la actividad 3.4 para que aplique, de manera secuencial, el resaltado de léxico a múltiples archivos fuente contenidos en uno o varios directorios anidados.
-Desarrolla una nueva versión de tu programa para que realice el proceso de resaltado de léxico de manera paralela con el fin de aprovechar los múltiples núcleos disponibles en los CPUs modernos.
-Asegúrate de utilizar en tu código fuente las convenciones de codificación del lenguaje en el que está implementado tu programa.
-Mide los tiempos de varias ejecuciones de las dos versiones de tu programa. Calcula el speedup obtenido. Reflexiona sobre las soluciones planteadas, los algoritmos implementados y sobre el tiempo de ejecución de estos.
-Calcula la complejidad de tu algoritmo basada en el número de iteraciones y contrástala con el tiempo obtenido en el punto 4.
-Plasma en un breve reporte de una página las conclusiones de tu reflexión en los puntos 5 y 6. Agrega además una breve reflexión sobre las implicaciones éticas que el tipo de tecnología que desarrollaste pudiera tener en la sociedad.
 
 Se midió el tiempo con “Time” en paralelo dando 36,403 milisegundos -> 36.4 segundos
 
