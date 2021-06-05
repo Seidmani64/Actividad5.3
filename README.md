@@ -40,6 +40,7 @@ Se midió el tiempo con “Time” en paralelo dando 36,403 milisegundos -> 36.4
 De la misma manera se midió el tiempo real total secuencial dando un total de 34,488 milisegundos -> 34.4 segundos.
 
 Speedup resultante: 34488/36403 = 0.947
+
 La complejidad del algoritmo es O(n) al igual que lo fue en el resaltador de sintaxis original. Esto es porque el paralelismo adicional implementado con esta versión del código simplemente repite el mismo proceso con la cantidad de archivos en el directorio. En este ejemplo sería O(4n) que al tomar en cuenta la complejidad O grande simplemente resulta en una complejidad de O(n). 
 
 Se puede identificar que el proyecto de racket cumplió su funcionamiento de correrse en diferentes cores pero desafortunadamente el tiempo real fue mayor al secuencial. Se identifica que se corrió en paralelo porque se utilizan todos los cores disponibles en el sistema para revisar los archivos por cada core disponible.
