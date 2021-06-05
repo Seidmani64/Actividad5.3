@@ -2,22 +2,22 @@
 
 
 
-INSTITUTO TECNOLÓGICO DE ESTUDIOS SUPERIORES DE MONTERREY
+### INSTITUTO TECNOLÓGICO DE ESTUDIOS SUPERIORES DE MONTERREY
 SEDE: Santa Fe 
 
 
-Actividad Integradora 5.3 Resaltador de sintaxis paralelo
+#### Actividad Integradora 5.3 Resaltador de sintaxis paralelo
 
 
-Implementación de métodos computacionales
+##### Implementación de métodos computacionales
 
 
 
-PRESENTAN: 
+### PRESENTAN: 
                                               
-Javier Corona Del Río                A01023063
-Ian Seidman                               A01028650
-Leonardo Ramírez Landa	   A01379391
+#### Javier Corona Del Río                A01023063
+#### Ian Seidman                               A01028650
+#### Leonardo Ramírez Landa	   A01379391
 
 
 
@@ -27,10 +27,12 @@ Leonardo Ramírez Landa	   A01379391
 
 
 
-Profesores:
-Gilberto Echeverria
-Junio 2021
+### Profesores:
+#### Gilberto Echeverria
+### Junio 2021
 
+
+## Speedup
 
 Se midió el tiempo con “Time” en paralelo dando 36,403 milisegundos -> 36.4 segundo
 
@@ -45,7 +47,13 @@ De la misma manera se midió el tiempo real total secuencial dando un total de 3
 
 Speedup resultante: 34488/36403 = 0.947
 
+## Complejidad
+
+
 La complejidad del algoritmo es O(n) al igual que lo fue en el resaltador de sintaxis original. Esto es porque el paralelismo adicional implementado con esta versión del código simplemente repite el mismo proceso con la cantidad de archivos en el directorio. En este ejemplo sería O(4n) que al tomar en cuenta la complejidad O grande simplemente resulta en una complejidad de O(n). 
+
+## Reflexión
+
 
 Se puede identificar que el proyecto de racket cumplió su funcionamiento de correrse en diferentes cores pero desafortunadamente el tiempo real fue mayor al secuencial. Se identifica que se corrió en paralelo porque se utilizan todos los cores disponibles en el sistema para revisar los archivos por cada core disponible.
 
@@ -54,5 +62,3 @@ Hay varias maneras de hackear una computadora, normalmente se hace para robar co
 [![Alt text](https://img.youtube.com/vi/RbHbFkh6eeE/0.jpg)](https://www.youtube.com/watch?v=RbHbFkh6eeE)
 
 En este video se ve cómo esta persona corre un programa y desafortunadamente sus datos son expuestos. Nosotros cómo conocedores de las computadoras y sus funciones debemos ser capaces de medirnos en estos tipos de aspectos porque fácilmente podemos caer en tentaciones de hacer o saber más de lo que deberíamos con programas maliciosos o con dispositivos físicos. Se tiene que tener una ética y valores fijos para entender la severidad de nuestros actos si traspasamos esta línea porque si lo hacemos podremos encontrar información sensible que nos pudiese poner en peligro. En conclusión debemos mantenernos informados para no filtrar información sensible accidentalmente en un futuro no muy lejano y mantenernos pendientes de las miles de consecuencias que existen si hacemos un acto así. 
-
-Para correr el código simplemente llama a la funcion main y ponle como argumento el string del directorio que quieres revisar y convertir a archivos html.
